@@ -9,7 +9,7 @@ new_env MYSQL_DATABASE monster
 new_env MYSQL_USER monster
 new_env MYSQL_PASSWORD $(random)
 
-. ../environment
+. ../../environment
 
 osc create -f - <<EOF
 kind: List
