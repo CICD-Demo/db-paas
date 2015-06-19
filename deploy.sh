@@ -18,23 +18,23 @@ items:
 - kind: ReplicationController
   apiVersion: v1beta3
   metadata:
-    name: mysql
+    name: db
     labels:
-      service: mysql
+      service: db
       function: backend
   spec:
     replicas: 1
     selector:
-      service: mysql
+      service: db
       function: backend
     template:
       metadata:
         labels:
-          service: mysql
+          service: db
           function: backend
       spec:
         containers:
-        - name: mysql
+        - name: db
           image: mysql
           ports:
           - containerPort: 3306
@@ -51,14 +51,14 @@ items:
 - kind: Service
   apiVersion: v1beta3
   metadata:
-    name: mysql
+    name: db
     labels:
-      service: mysql
+      service: db
       function: backend
   spec:
     ports:
     - port: 3306
     selector:
-      service: mysql
+      service: db
       function: backend
 EOF
