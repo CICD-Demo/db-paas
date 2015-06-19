@@ -20,15 +20,18 @@ items:
   metadata:
     name: mysql
     labels:
-      component: mysql
+      service: mysql
+      function: backend
   spec:
     replicas: 1
     selector:
-      component: mysql
+      service: mysql
+      function: backend
     template:
       metadata:
         labels:
-          component: mysql
+          service: mysql
+          function: backend
       spec:
         containers:
         - name: mysql
@@ -50,10 +53,12 @@ items:
   metadata:
     name: mysql
     labels:
-      component: mysql
+      service: mysql
+      function: backend
   spec:
     ports:
     - port: 3306
     selector:
-      component: mysql
+      service: mysql
+      function: backend
 EOF
