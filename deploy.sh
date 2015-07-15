@@ -11,12 +11,12 @@ new_env MYSQL_PASSWORD $(random)
 
 . ../../environment
 
-osc create -f - <<EOF
+oc create -f - <<EOF
 kind: List
-apiVersion: v1beta3
+apiVersion: v1
 items:
 - kind: ReplicationController
-  apiVersion: v1beta3
+  apiVersion: v1
   metadata:
     name: db
     labels:
@@ -35,7 +35,7 @@ items:
       spec:
         containers:
         - name: db
-          image: mysql
+          image: registry.access.redhat.com/openshift3/mysql-55-rhel7
           ports:
           - containerPort: 3306
           env:
@@ -49,7 +49,7 @@ items:
             value: "$MYSQL_PASSWORD"
 
 - kind: Service
-  apiVersion: v1beta3
+  apiVersion: v1
   metadata:
     name: db
     labels:
