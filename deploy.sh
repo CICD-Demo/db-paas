@@ -35,7 +35,7 @@ items:
       spec:
         containers:
         - name: db
-          image: registry.access.redhat.com/openshift3/mysql-55-rhel7
+          image: docker.io/openshift/mysql-55-centos7
           ports:
           - containerPort: 3306
           env:
